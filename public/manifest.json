@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Custom Home Screen",
+  "name": "Custom New Tab Screen",
   "version": "1.0.0",
-  "description": "A custom home screen with bookmark grid",
+  "description": "A custom new tab screen with bookmark grid",
   "permissions": ["bookmarks"],
   "chrome_url_overrides": {
     "newtab": "index.html"
