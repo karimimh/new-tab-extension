@@ -27,8 +27,11 @@ const BookmarkGrid: React.FC = () => {
   const { bookmarks, folders } = getFilteredContent(currentFolder);
   const isRoot = navigationStack.length === 0;
 
+  // Combine folders and bookmarks into a single list
+  const combinedItems = [...folders, ...bookmarks];
+
   // Handle empty folder
-  if (bookmarks.length === 0 && folders.length === 0) {
+  if (combinedItems.length === 0) {
     return (
       <div className="w-full max-w-6xl mx-auto">
         <FolderHeader
@@ -49,39 +52,22 @@ const BookmarkGrid: React.FC = () => {
         onBack={navigateBack}
       />
 
-      {/* Display folders first */}
-      {folders.length > 0 && (
-        <div className="mb-8">
-          <h3 className="text-lg font-medium mb-4">Folders</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {folders.map((folder: BookmarkTreeNode) => (
-              <FolderItem
-                key={folder.id}
-                id={folder.id}
-                title={folder.title}
-                children={folder.children || []}
-                onClick={() => navigateToFolder(folder)}
-              />
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Display bookmarks */}
-      {bookmarks.length > 0 && (
-        <div>
-          <h3 className="text-lg font-medium mb-4">Bookmarks</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {bookmarks.map((bookmark: BookmarkTreeNode) => (
-              <BookmarkItem
-                key={bookmark.id}
-                title={bookmark.title}
-                url={bookmark.url || ""}
-              />
-            ))}
-          </div>
-        </div>
-      )}
+      {/* Display combined items */}
+      <div className="flex items-center flex-wrap gap-4">
+        {combinedItems.map((item: BookmarkTreeNode) =>
+          item.url ? (
+            <BookmarkItem key={item.id} title={item.title} url={item.url} />
+          ) : (
+            <FolderItem
+              key={item.id}
+              id={item.id}
+              title={item.title}
+              children={item.children || []}
+              onClick={() => navigateToFolder(item)}
+            />
+          )
+        )}
+      </div>
     </div>
   );
 };

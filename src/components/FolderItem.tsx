@@ -12,9 +12,9 @@ const FolderItem: React.FC<FolderItemProps> = ({ title, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className="flex flex-col items-center p-4 rounded-lg hover:bg-gray-100 transition-colors"
+      className="flex flex-col items-center rounded-lg p-1 transition-colors cursor-pointer"
     >
-      <div className="rounded-lg shadow-md bg-white mb-2 p-2 overflow-hidden">
+      <div className="rounded-lg shadow-md bg-white mb-2 overflow-hidden">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="w-12 h-12 text-yellow-500"

@@ -14,9 +14,9 @@ const BookmarkItem: React.FC<BookmarkProps> = ({ title, url }) => {
   return (
     <a
       href={url}
-      className="flex flex-col items-center p-4 rounded-lg hover:bg-gray-100 transition-colors"
+      className="flex flex-col items-center rounded-lg p-1 transition-colors"
     >
-      <div className="rounded-lg shadow-md bg-white mb-2 p-2 overflow-hidden">
+      <div className="rounded-lg shadow-md bg-white mb-2 overflow-hidden">
         <img
           src={faviconUrl}
           alt={title}
