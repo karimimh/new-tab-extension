@@ -95,3 +95,7 @@ There are no environment variables or settings. To change what the extension is 
 ## Project status
 
 This is a small personal utility that works for everyday use. It has no automated tests and isn't published to the Chrome Web Store. The extension icon is currently the Vite placeholder logo.
+
+## License
+
+Released under the [MIT License](LICENSE).
